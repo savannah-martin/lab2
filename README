@@ -1,0 +1,33 @@
+Lab 2 // Low-Level Math in C
+Architecture and Assembly Language - CIS 386
+Floating-Point Equality
+Write a function in C that will expose the issues with equality comparison between floats in C (i.e., when the == operator fails). Write a function that compares the result of two floating-point numbers using the == operator that doesn’t operate according to the rules of math. This will be easier if you use floats, not literals (since they’re stored as doubles). 
+
+For example (3.333333 + 1.777777) == (5.0)
+
+Floating Point Associativity 
+Write a function in C that will expose the issues with associativity of floating-point operations, e.g., c + (a + b) ≠ (c + a) + b. Find values of a, b, and c  that will not operate according to the associativity rules of math. 
+
+
+Is Power of Two
+Write two functions to determine if an integer is a power of 2. In the first one, int isPowerOfTwoSimple(int i) you may use integer operations (e.g. addition, subtraction, multiplication, division). In the second version, int isPowerOfTwoClever(int i), you must use bitwise operators. 
+
+int isPowerOfTwoSimple(2)    // return 1 (true)
+int isPowerOfTwoSimple(4)    // return 1 (true)
+int isPowerOfTwoSimple(510)  // return 0 (false)
+
+int isPowerOfTwoClever(2)    // return 1 (true)
+int isPowerOfTwoClever(4)    // return 1 (true)
+int isPowerOfTwoClever(510)  // return 0 (false)
+
+Bit Shifting 
+Write a C function to multiply an integer by a power of 2 WITHOUT using multiplication or division. Print an error message and return 0 if the result is not to be trusted. 
+
+bsMultiply(unsigned int number, unsigned int powerOfTwo)
+
+bsMultiply( 15, 8) // return 120 
+bsMultiply( 25, 9) // return 0
+bsMultiply(2000000000, 256) // return 0 
+
+
+
