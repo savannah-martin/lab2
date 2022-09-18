@@ -1,33 +1,35 @@
+#include <math.h>
+#include <stdbool.h>
 #include <stdio.h>
-#include <stdlib.h>
 
-int powerOfTwo(unsigned int number, unsigned int powerOfTwo)
+bool isPowerOfTwoSimple(int i)
 {
-    int count = 0;
+    return (ceil(log2(i)) == floor(log2(i)));
+};
 
-    if (powerOfTwo % 2 == 1)
-    {
-        printf("0");
+int isPowerOfTwoClever(int i)
+{
+    if ((i & (i - 1)) != 0)
         return 0;
-    }
-    while (powerOfTwo != 0 && powerOfTwo % 2 == 0)
-    {
-        powerOfTwo >>= 1;
-        count++;
-    }
-    printf("%d", number << count);
-    return number << count;
-}
+    return 1;
+};
+
 int main()
 {
-    int expo = 0;
-    int num = 0;
-    printf("Enter an unsigned int value: ");
-    scanf("%u", &expo);
-    printf("value: %u\n", expo);
+    int i = 0;
 
-    printf("Enter an unsigned int value again: ");
-    scanf("%u", &num);
-    printf("value: %u\n", num);
-    printf("Shifted: %u\n", powerOfTwo(num, expo));
+    printf("Enter Number: ");
+    scanf("%i", &i);
+
+    if (isPowerOfTwoSimple(i))
+        printf("Yes\n");
+    else
+        printf("No\n");
+
+    if (isPowerOfTwoClever(i))
+        printf("Yes");
+    else
+        printf("No");
+
+    return 1;
 }

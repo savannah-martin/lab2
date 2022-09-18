@@ -1,2 +1,2 @@
-int convert(n)
-// {
+ printf("Enter Number: ");
+    scanf("%d", &i);
