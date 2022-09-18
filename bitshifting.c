@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <limits.h>
 
 int bsMultiply(unsigned int number, unsigned int powerOfTwo)
 {
@@ -17,24 +18,27 @@ int bsMultiply(unsigned int number, unsigned int powerOfTwo)
     }
     printf("Count: %i\n", count);
 
-    fin = number << count;
-    if (fin >= 2147483647)
+    if ((number << count) <= USHRT_MAX) // or UINT_MAX here if long unsigned int
+    {
+        printf("Max 32-in value: %u\n", USHRT_MAX);
+        printf("Difference: %u\n", USHRT_MAX - (number << count));
+        return number << count;
+    }
+    else
     {
         return 0;
     }
-    else
-        return fin;
 }
 int main()
 {
     unsigned int num = 0;
     unsigned int expo = 0;
     printf("Enter Number: ");
-    scanf("%i", &num);
-    printf("Value: %i\n", num);
+    scanf("%u", &num);
+    printf("Value: %u\n", num);
 
     printf("Enter Power of Two: ");
-    scanf("%i", &expo);
-    printf("Value: %i\n", expo);
-    printf("Shifted: %i\n", bsMultiply(num, expo));
+    scanf("%u", &expo);
+    printf("Value: %u\n", expo);
+    printf("Shifted: %u\n", bsMultiply(num, expo));
 }

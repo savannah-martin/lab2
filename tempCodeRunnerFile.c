@@ -1,2 +1,1 @@
- printf("Enter Number: ");
-    scanf("%d", &i);
+%i
